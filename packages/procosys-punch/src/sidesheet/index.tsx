@@ -1,9 +1,5 @@
 import { Button } from "@equinor/eds-core-react";
 import { SideSheet } from "@equinor/fusion-react-side-sheet";
-import Actions from "@equinor/fusion-react-side-sheet/dist/components/Actions";
-import { Title } from "@equinor/fusion-react-side-sheet/dist/components/Title";
-import { SubTitle } from "@equinor/fusion-react-side-sheet/dist/components/SubTitle";
-import { Content } from "@equinor/fusion-react-side-sheet/dist/components/Content";
 
 import { useState } from "react";
 
@@ -18,15 +14,15 @@ export default function PunchSideSheet() {
         onClose={() => setOpenSheet(false)}
         isOpen={openSheet}
       >
-        <Title title={"test"} />
-        <SubTitle subTitle="test1" />
-        <Actions>
+        <SideSheet.Title title={"test"} />
+        <SideSheet.SubTitle subTitle="test1" />
+        <SideSheet.Actions>
           <Button
             onClick={function noRefCheck() {}}
             variant="ghost_icon"
           ></Button>
-        </Actions>
-        <Content />
+        </SideSheet.Actions>
+        <SideSheet.Content />
       </SideSheet>
     </div>
   );
