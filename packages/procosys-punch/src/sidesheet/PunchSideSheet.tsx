@@ -3,7 +3,7 @@ import { SideSheet } from "@equinor/fusion-react-side-sheet";
 
 import { useState } from "react";
 
-export default function PunchSideSheet() {
+const PunchSideSheet = () => {
   const [openSheet, setOpenSheet] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   return (
@@ -43,4 +43,6 @@ export default function PunchSideSheet() {
       </SideSheet>
     </div>
   );
-}
+};
+
+export default PunchSideSheet;
