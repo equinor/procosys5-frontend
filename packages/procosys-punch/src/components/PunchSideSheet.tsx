@@ -14,16 +14,14 @@ type SheetProps = {
 
 export const PunchSideSheet = ({ openSheet, setOpenSheet }: SheetProps) => {
   return (
-    <div>
-      <ProcosysSideSheet
-        title="123"
-        openSheet={openSheet}
-        setOpenSheet={setOpenSheet}
-        subtitle={""}
-        actions={<></>}
-      >
-        <div>test</div>
-      </ProcosysSideSheet>
-    </div>
+    <ProcosysSideSheet
+      title="123"
+      openSheet={openSheet}
+      setOpenSheet={setOpenSheet}
+      subtitle={""}
+      actions={<></>}
+    >
+      <div>test</div>
+    </ProcosysSideSheet>
   );
 };
