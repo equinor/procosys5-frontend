@@ -26,7 +26,10 @@ export const PunchSideSheet = ({
 
   const getPunch = async () => {
     if (punchId) {
-      const data = await getByFetch(`punchitems/${punchId}`, plant);
+      const data = await getByFetch(
+        `punchitems/01000000-6966-6A1C-DD89-08DC27B34284`,
+        plant
+      );
       setPunch(data);
     }
   };

@@ -14,14 +14,13 @@ function App() {
 
   const handleOpenSecond = () => {
     setOpen(true);
-    setPunch("01000000-6966-6A1C-DD89-08DC27B34283");
+    setPunch("01000000-6966-6A1C-DD89-08DC27B34284");
   };
 
   return (
     <>
       <div style={{ display: "flex", gap: "5px" }}>
-        <Button onClick={handleOpenFirst}>Åpne punch 1</Button>
-        <Button onClick={handleOpenSecond}>Åpne punch 2</Button>
+        <Button onClick={handleOpenFirst}>Åpne punch</Button>
       </div>
 
       <PunchSideSheet
