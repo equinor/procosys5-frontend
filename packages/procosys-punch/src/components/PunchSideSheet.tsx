@@ -10,20 +10,42 @@ import PunchFooter from "./PunchFooter";
 type SheetProps = {
   openSheet: boolean;
   setOpenSheet: React.Dispatch<React.SetStateAction<boolean>>;
+  punchId: string;
+  plant: string;
 };
 
 const DummyPunch = { punchid: "1234", type: "Punch item", category: "PB" };
 
-export const PunchSideSheet = ({ openSheet, setOpenSheet }: SheetProps) => {
+export const PunchSideSheet = ({
+  openSheet,
+  setOpenSheet,
+  punchId,
+  plant,
+}: SheetProps) => {
+  const [punch, setPunch] = useState<PunchItem>();
+
+  const getPunch = async () => {
+    if (punchId) {
+      const data = await getByFetch(
+        `punchitems/01000000-6966-6A1C-DD89-08DC27B34284`,
+        plant
+      );
+      setPunch(data);
+    }
+  };
+
+  useEffect(() => {
+    getPunch();
+  }, []);
   return (
     <ProcosysSideSheet
-      title={DummyPunch.punchid}
+      title={punch?.guid}
       openSheet={openSheet}
       setOpenSheet={setOpenSheet}
-      subtitle={DummyPunch.type}
+      subtitle={"Punchitem"}
       actions={<></>}
       indicator
-      indicatorColor={DummyPunch.category === "PB" ? "#ebbd34" : "#c43b3b"}
+      indicatorColor={punch?.category === "PB" ? "#ebbd34" : "#c43b3b"}
       footer={<PunchFooter />}
       tabs={[
         {
