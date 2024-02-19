@@ -24,6 +24,7 @@ export const PunchSideSheet = ({ openSheet, setOpenSheet }: SheetProps) => {
       actions={<></>}
       indicator
       indicatorColor={DummyPunch.category === "PB" ? "#ebbd34" : "#c43b3b"}
+      footer={<PunchFooter />}
       tabs={[
         {
           TabTitle: "Main",
