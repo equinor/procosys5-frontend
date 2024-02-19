@@ -1,27 +1,39 @@
-import { HEXString } from "@equinor/fusion-react-side-sheet";
-import { ProcosysSideSheet } from "@equinor/procosys5-sidesheet";
+import ProcosysSideSheet from "@equinor/procosys5-sidesheet";
+import { PunchActions } from "./PunchActions";
+import { PunchDescription } from "./PunchDescription";
+import { getByFetch } from "../services/CompletionApi";
+import { CompletionApiSetting } from "../types";
+import { useEffect, useState } from "react";
+import { PunchItem } from "../apitypes";
+import PunchFooter from "./PunchFooter";
 
 type SheetProps = {
   openSheet: boolean;
   setOpenSheet: React.Dispatch<React.SetStateAction<boolean>>;
-  title: string;
-  subtitle: string;
-  actions: JSX.Element;
-  children: React.ReactNode;
-  indicator?: false;
-  indicatorColor?: HEXString;
 };
+
+const DummyPunch = { punchid: "1234", type: "Punch item", category: "PB" };
 
 export const PunchSideSheet = ({ openSheet, setOpenSheet }: SheetProps) => {
   return (
     <ProcosysSideSheet
-      title="123"
+      title={DummyPunch.punchid}
       openSheet={openSheet}
       setOpenSheet={setOpenSheet}
-      subtitle={""}
+      subtitle={DummyPunch.type}
       actions={<></>}
-    >
-      <div>test</div>
-    </ProcosysSideSheet>
+      indicator
+      indicatorColor={DummyPunch.category === "PB" ? "#ebbd34" : "#c43b3b"}
+      tabs={[
+        {
+          TabTitle: "Main",
+          TabContent: <></>,
+        },
+        {
+          TabTitle: "Change history",
+          TabContent: <></>,
+        },
+      ]}
+    ></ProcosysSideSheet>
   );
 };
